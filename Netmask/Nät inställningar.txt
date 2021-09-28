@@ -1,0 +1,4 @@
+Nät inställningar
+Ip: 192.684.123.1
+Subnetmask: 192.184.142.1
+Default gateway: 194.684.123.1
