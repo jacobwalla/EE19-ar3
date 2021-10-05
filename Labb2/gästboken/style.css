@@ -112,3 +112,7 @@ form label {
 form span {
     padding: 10px;
 }
+
+.bold{
+    font-weight: 700;
+}

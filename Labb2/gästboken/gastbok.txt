@@ -1,5 +1,1 @@
-
-            Testar gästboken bahd
-            test
-            Jacob
-            
+<h3>Testar gästboken med datum</h3><p Class="bold">10:07:59 Måndag 21 Oktober</p><p>nkaslfnasknfnasklnfasnfasf djkalskdj ashdja djhasjhdashdhjkahdjk hj hasdjhkash</p><p class="bold">Jacob</p>
