@@ -16,7 +16,7 @@
 
         echo "<p>Texten med $bokstäver bokstäver blir såhär</p>";
 
-        // Om riktning är c->f 
+        // Stora eller små bokstäver
         if ($bokstäver == "stora") {
             echo strtoupper("<p>$texten</p>");
         } else {
