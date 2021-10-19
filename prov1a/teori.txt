@@ -1,0 +1,6 @@
+1. Ge exempel på webbtjänster som bygger på PHP.
+Schoolsoft
+
+2. Beskriv vilka tekniker som krävs för att en webbapplikation byggd på PHP skall fungera.
+Webbserverprogrammerare
+
