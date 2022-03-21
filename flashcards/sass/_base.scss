@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Poppins:wght@300;400;700&family=Readex+Pro:wght@400;500;700&family=Shadows+Into+Light&family=Zen+Antique+Soft&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 42px;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: $body-bg;
+    @include flexCenter;
+    flex-direction: column;
+    padding-bottom: 60px;
+}
