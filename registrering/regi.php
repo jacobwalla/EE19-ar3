@@ -1,3 +1,7 @@
+<?php
+include "konfigdb.php"
+?>
+
 <!DOCTYPE html>
 <html lang="sv">
 
@@ -16,7 +20,7 @@
 
         </nav>
         <main>
-            <form action="regi-db.php" method="POST">
+            <form action="regi.php" method="POST">
                 <div class="row mb-3">
                     <label for="inputNamn" class="col-sm-2 col-form-label">Namn</label>
                     <div class="col-sm-10">
@@ -39,6 +43,55 @@
                 <button type="submit" class="btn btn-primary">Registrera</button>
             </form>
         </main>
+
+        <?php
+
+        // Ta emot data från formuläret
+        $namn = filter_input(INPUT_POST, "namn");
+        $email = filter_input(INPUT_POST, "email");
+        $lösen = filter_input(INPUT_POST, "lösen");
+
+        // Testa att det fungerar
+        /* var_dump($namn, $email, $lösen); */
+
+        // Kolla så att det INTE är "null"
+        if ($namn && $email && $lösen) {
+
+            // Kontrollera att användarnamnet eller emailen inte redan används
+            $sql = "SELECT * FROM `register` WHERE namn='$namn' OR 
+            epost='$email'";
+
+            // Kör SQL kommandot
+            $resultat = $conn->query($sql);
+
+            // Hittar vi samma användarnamn eller email?
+            if ($resultat->num_rows > 0) {
+                echo "<p class=\"alert alert-warning\">Användarnamn eller email används redan. Var god försök igen.</p>";
+            } else {
+
+                // Räkna fram ett hash på lösenordet
+                $hash = password_hash($lösenord, PASSWORD_DEFAULT);
+
+                // Lagra i databasen
+                // 1. SQL kommandot
+                $sql = "INSERT INTO register (namn, epost, hash) VALUES ('$namn', '$email', '$hash')";
+
+                // 2. Kör SQL kommandot
+                $resultat = $conn->query($sql);
+
+                // 3. Fungerar det?
+                if (!$resultat) {
+                    die("<p class=\"alert alert-warning\">Någonting blev fel!</p>");
+                } else {
+                    echo "<p class=\"alert alert-success\">Användaren $namn är registrerad</p>";
+                }
+
+            }
+            
+        };
+
+        ?>
+
     </div>
 </body>
 
