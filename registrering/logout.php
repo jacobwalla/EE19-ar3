@@ -48,6 +48,8 @@ session_start();
         $_SESSION['inloggad'] = false;
         echo "<p class=\"alert alert-success\">Du är utloggad!</p>";
 
+        header("Location: login.php");
+
         ?>
 
     </div>

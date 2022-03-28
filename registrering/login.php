@@ -15,6 +15,13 @@ session_start();
 </head>
 
 <body>
+<?php
+    if (isset($_SESSION['inloggad']) && $_SESSION['inloggad'] == true) {
+        echo "<p class=\"alert alert-success\">Du är inloggad</p>";
+    } else {
+        echo "<p class=\"alert alert-warning\">Du är utloggad</p>";
+    }
+    ?>
     <div class="kontainer">
         <div class="title-box1">
             <div class="title-box">
@@ -23,21 +30,27 @@ session_start();
         </div>
         <nav>
             <ul class="nav justify-content-center">
-                <?php
+            <?php
                 if ($_SESSION['inloggad'] == false) {
                 ?>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="login.php">Logga In</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="login.php">Logga In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="regi.php">Registrera</a>
+                    </li>
+                <?php
+                } else {
+                ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.php">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logga Ut</a>
+                    </li>
                 <?php
                 }
                 ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="regi.php">Registrera</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Logga Ut</a>
-                </li>
             </ul>
         </nav>
         <main>
@@ -92,6 +105,8 @@ session_start();
                     
                     // Kom ihåg att vi lyckats logga in
                     $_SESSION['inloggad'] = true;
+
+                    header("Location: admin.php");
 
                 } else {
                     echo "<p class=\"alert alert-warning\">Email eller lösenord stämmer inte. Försök igen!</p>";

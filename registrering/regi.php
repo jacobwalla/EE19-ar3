@@ -16,8 +16,10 @@ session_start();
 
 <body>
     <?php
-    if ($_SESSION['inloggad'] == true) {
-        echo "<p class=\"alert alert-success\">Du är inloggad!</p>";
+    if (isset($_SESSION['inloggad']) && $_SESSION['inloggad'] == true) {
+        echo "<p class=\"alert alert-success\">Du är inloggad</p>";
+    } else {
+        echo "<p class=\"alert alert-warning\">Du är utloggad</p>";
     }
     ?>
     <div class="kontainer">
@@ -31,18 +33,24 @@ session_start();
                 <?php
                 if ($_SESSION['inloggad'] == false) {
                 ?>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="login.php">Logga In</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="login.php">Logga In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="regi.php">Registrera</a>
+                    </li>
+                <?php
+                } else {
+                ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.php">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logga Ut</a>
+                    </li>
                 <?php
                 }
                 ?>
-                <li class="nav-item">
-                    <a class="nav-link active" href="regi.php">Registrera</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Logga Ut</a>
-                </li>
             </ul>
         </nav>
         <main>

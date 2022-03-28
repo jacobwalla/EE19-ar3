@@ -43,6 +43,10 @@ nav .nav-link:hover {
     color: #ff8b00;
 }
 
+main{
+    padding: 2em;
+}
+
 form {
     margin: 2em;
     padding: 2em;
