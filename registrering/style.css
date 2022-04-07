@@ -2,6 +2,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
+    background: url("./bilder/john-fowler-RsRTIofe0HE-unsplash\ \(1\).jpg");
 }
 
 .title-box1{
@@ -45,6 +46,18 @@ nav .nav-link:hover {
 
 main{
     padding: 2em;
+}
+
+.hem-kontainer{
+    margin: 5em;
+}
+
+.hem-kontainer h1{
+    text-align: center;
+}
+.hem-kontainer p{
+    text-align: center;
+    font-size: 20px;
 }
 
 form {

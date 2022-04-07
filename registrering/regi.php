@@ -34,10 +34,10 @@ session_start();
                 if ($_SESSION['inloggad'] == false) {
                 ?>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="login.php">Logga In</a>
+                        <a class="nav-link active" href="regi.php">Registrera</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="regi.php">Registrera</a>
+                        <a class="nav-link" aria-current="page" href="login.php">Logga In</a>
                     </li>
                 <?php
                 } else {
